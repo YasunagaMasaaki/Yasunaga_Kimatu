@@ -5,14 +5,8 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
-    int score = 0;
+    public int score = 0;
     GameObject scoreText;
-    GameObject gameOverText;
-
-    public void GameOver()
-    {
-        this.gameOverText.GetComponent<Text>().text = "GameOver";
-    }
 
     public void AddScore()
     {
@@ -22,11 +16,12 @@ public class UI : MonoBehaviour
     void Start()
     {
         this.scoreText = GameObject.Find("Score");
-        this.gameOverText = GameObject.Find("GameOver");
     }
 
     void Update()
     {
         scoreText.GetComponent<Text>().text = "Score:" + score.ToString("D4");
+        PlayerPrefs.SetInt("FinalScore", score); // スコアを保存
+        PlayerPrefs.Save(); // 明示的に保存
     }
 }

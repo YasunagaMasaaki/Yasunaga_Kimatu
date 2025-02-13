@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -19,8 +20,7 @@ public class Enemy : MonoBehaviour
 
         if (transform.position.y < -5.5f)
         {
-            GameObject.Find("Canvas").GetComponent<UI>().GameOver();
-            Destroy(gameObject);
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
