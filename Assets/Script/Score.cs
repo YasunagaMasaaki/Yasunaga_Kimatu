@@ -47,12 +47,15 @@ public class Score : MonoBehaviour
 
     void Start()
     {
-        int finalScore = PlayerPrefs.GetInt("FinalScore", 0); // スコアを取得
-        scoreText.text = "Score: " + finalScore; // UIに表示
+        int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
+        scoreText.text = "Score: " + finalScore;
+
+        //json
         saveData.save1 = finalScore;
         SaveData();
         Debug.Log("data saved1");
 
+        //Mongodb
         client = new MongoClient("mongodb+srv://YasunagaMasaaki:Tcjplg1983!!@cluster0.kgkgk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
         database = client.GetDatabase("unity_test");
         collection = database.GetCollection<BsonDocument>("unity_test0");

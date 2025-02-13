@@ -21,7 +21,7 @@ public class UI : MonoBehaviour
     void Update()
     {
         scoreText.GetComponent<Text>().text = "Score:" + score.ToString("D4");
-        PlayerPrefs.SetInt("FinalScore", score); // スコアを保存
-        PlayerPrefs.Save(); // 明示的に保存
+        PlayerPrefs.SetInt("FinalScore", score);
+        PlayerPrefs.Save();
     }
 }
